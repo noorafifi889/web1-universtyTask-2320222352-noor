@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Nour Al Afifi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* TODO 1: Body & Font Styling */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; 
+            color: #e2e8f0; 
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* TODO 6: Container Shadow */
+        .cv-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #1e293b;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.5);
+        }
+
+        /* TODO 2: Header with Gradient */
+        .cv-header {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            text-align: center;
+            padding: 40px 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        /* TODO 7: Circular Photo */
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #4caf50;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            object-fit: cover;
+            margin-bottom: 15px;
+            background-color: #334155; /* Placeholder color */
+        }
+
+        .cv-header h1 {
+            margin: 10px 0;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        .cv-header p {
+            margin: 5px 0;
+            font-size: 1.1rem;
+            color: #cbd5e1;
+        }
+
+        /* TODO 3: Skills as Tags */
+        .skills-list {
+            padding: 0;
+            list-style: none;
+        }
+
+        .skills-list li {
+            display: inline-block;
+            background: #1e3a8a;
+            color: #ffffff;
+            padding: 6px 18px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: transform 0.2s;
+        }
+
+        .skills-list li:hover {
+            transform: scale(1.05);
+            background: #4caf50;
+        }
+
+        /* TODO 4: Styled Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #334155;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #1a1a2e;
+            color: #4caf50;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        tr:nth-child(even) {
+            background-color: #1e293b;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #16213e;
+        }
+
+        /* TODO 5: Link Styling */
+        a {
+            color: #4caf50;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            color: #81c784;
+            text-decoration: underline;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            border-left: 4px solid #4caf50;
+            padding-left: 15px;
+            color: #4caf50;
+            margin-bottom: 20px;
+        }
+
+        .project-item {
+            margin-bottom: 15px;
+        }
+
+        .location-tag {
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cv-container">
+        <header class="cv-header">
+            <!-- Replace with your actual image path -->
+            <img src="profile.jpg" alt="Nour Al Afifi" class="profile-img">
+            <h1>Nour Al Afifi</h1>
+            <p>Front-End Developer | IT & Interior Design Student</p>
+            <p class="location-tag">Al-Zawayda, Gaza</p>
+            <p>
+                <a href="mailto:nour@example.com">Email Me</a> | 
+                <a href="https://linkedin.com/in/nouralafifi" target="_blank">LinkedIn</a> | 
+                <a href="https://github.com/nouralafifi" target="_blank">GitHub</a>
+            </p>
+        </header>
+
+        <section>
+            <h2>About Me</h2>
+            <p>
+                A professional Front-End Developer and 4th-year Applied Information Technology student at Al-Aqsa University. 
+                I specialize in the React ecosystem (Next.js, TypeScript, Tailwind CSS) and have a keen interest in Interior Design and AI integration in fashion. 
+                Completed a 100-hour intensive Frontend training with Gaza Sky Geeks.
+            </p>
+        </section>
+
+        <section>
+            <h2>Skills</h2>
+            <ul class="skills-list">
+                <li>React.js</li>
+                <li>Next.js</li>
+                <li>TypeScript</li>
+                <li>Tailwind CSS</li>
+                <li>JavaScript (ES6+)</li>
+                <li>Git & GitHub</li>
+                <li>Interior Design</li>
+                <li>UI/UX Logic</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Education</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Degree / Field</th>
+                        <th>Institution</th>
+                        <th>Year</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>BSc Applied Information Technology</td>
+                        <td>Al-Aqsa University</td>
+                        <td>2022 - Present</td>
+                        <td>4th Year</td>
+                    </tr>
+                    <tr>
+                        <td>Interior Design & Decoration</td>
+                        <td>Professional Diploma</td>
+                        <td>2025 - Present</td>
+                        <td>1st Year</td>
+                    </tr>
+                    <tr>
+                        <td>Intensive Frontend Training</td>
+                        <td>Gaza Sky Geeks</td>
+                        <td>2026</td>
+                        <td>100 Hours Completed</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Projects</h2>
+            <div class="project-item">
+                <strong>Mirror Me</strong> - An AI-powered outfit recommendation platform designed for store owners to increase sales through smart product analysis.
+            </div>
+            <div class="project-item">
+                <strong>Personal Portfolio</strong> - A professional dark-mode portfolio showcasing web development and design projects.
+            </div>
+        </section>
+
+        <section>
+            <h2>Contact & Social</h2>
+            <p>
+                Feel free to reach out for collaboration on Web Development or Interior Design projects.
+            </p>
+            <p>
+                <a href="https://linkedin.com/in/nouralafifi">Connect on LinkedIn</a><br>
+                <a href="https://github.com/nouralafifi">Follow on GitHub</a>
+            </p>
+        </section>
+    </div>
+
+</body>
+</html>
