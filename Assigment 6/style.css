@@ -16,28 +16,30 @@
 body {
   background: var(--bg-dark);
   color: var(--text);
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
+  font-family: "Inter", sans-serif;
 }
 
-.navbar {
-  width: 100%;
-  padding: 20px 50px;
-  background: #111;
+.portfolio-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 25px 60px;
+  background: #111;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-.logo {
-  font-size: 24px;
-  color: var(--primary);
+.nav-logo {
+  font-size: 28px;
   font-weight: bold;
+  color: var(--primary);
 }
 
-.nav-links {
+.nav-menu {
   display: flex;
-  gap: 25px;
+  list-style: none;
+  gap: 30px;
 }
 
 .nav-link {
@@ -53,63 +55,136 @@ body {
 
 .nav-link::after {
   content: "";
-  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
   height: 2px;
   background: var(--primary);
   transform: scaleX(0);
-  transition: transform 0.3s;
   transform-origin: left;
-  margin-top: 5px;
+  transition: transform 0.3s;
 }
 
 .nav-link:hover::after {
   transform: scaleX(1);
 }
 
-.hero {
-  min-height: 90vh;
+.hero-section {
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 40px;
 }
 
-.hero-title {
-  font-size: 60px;
-  margin-bottom: 15px;
+.hero-greeting {
+  font-size: 22px;
+  margin-bottom: 10px;
   animation: fadeInUp 1s ease forwards;
 }
 
-.hero-subtitle {
-  font-size: 22px;
-  color: #bbb;
+.hero-name {
+  font-size: 70px;
+  color: var(--primary);
+  margin-bottom: 15px;
   animation: fadeInUp 1s ease forwards;
-  animation-delay: 0.4s;
+  animation-delay: 0.3s;
   opacity: 0;
 }
 
+.hero-role {
+  font-size: 30px;
+  margin-bottom: 20px;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+}
+
+.hero-desc {
+  max-width: 700px;
+  margin: auto;
+  line-height: 1.8;
+  color: #bdbdbd;
+  margin-bottom: 30px;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.7s;
+  opacity: 0;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.9s;
+  opacity: 0;
+}
+
+.btn-hero-primary,
+.btn-hero-secondary {
+  padding: 14px 28px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: var(--transition);
+  font-weight: 600;
+}
+
+.btn-hero-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-hero-secondary {
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+.btn-hero-primary:hover,
+.btn-hero-secondary:hover {
+  transform: translateY(-5px);
+}
+
+.skills-section,
+.projects-section,
+.contact-section {
+  padding: 100px 60px;
+}
+
 .skills-section {
-  padding: 80px 50px;
   animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.projects-section {
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.contact-section {
+  animation: fadeInUp 0.8s ease-out 0.6s both;
 }
 
 .section-title {
   text-align: center;
-  margin-bottom: 40px;
-  font-size: 36px;
+  font-size: 40px;
+  margin-bottom: 10px;
 }
 
-.skills-container {
+.section-desc {
+  text-align: center;
+  color: #aaa;
+  margin-bottom: 50px;
+}
+
+.skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 25px;
 }
 
 .skill-card {
   background: var(--bg-card);
-  padding: 30px;
+  padding: 35px 25px;
   border-radius: var(--radius);
   text-align: center;
   transition: var(--transition);
@@ -120,14 +195,22 @@ body {
   box-shadow: 0 0 20px rgba(76, 175, 80, 0.5);
 }
 
-.projects-section {
-  padding: 80px 50px;
-  animation: fadeInUp 0.8s ease-out 0.4s both;
+.skill-icon {
+  font-size: 45px;
+  margin-bottom: 15px;
 }
 
-.projects-container {
+.skill-card h3 {
+  margin-bottom: 10px;
+}
+
+.skill-card p {
+  color: #bdbdbd;
+}
+
+.projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 30px;
 }
 
@@ -137,20 +220,21 @@ body {
   border-radius: var(--radius);
 }
 
-.project-card img {
+.project-image {
   width: 100%;
+  height: 260px;
+  object-fit: cover;
   display: block;
 }
 
 .project-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
+  background: rgba(0, 0, 0, 0.8);
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   opacity: 0;
   transition: opacity 0.4s;
 }
@@ -159,25 +243,50 @@ body {
   opacity: 1;
 }
 
-.view-btn {
-  margin-top: 15px;
-  padding: 10px 20px;
-  border: none;
+.project-overlay h3 {
+  margin-bottom: 10px;
+}
+
+.project-overlay p {
+  margin-bottom: 20px;
+  color: #ccc;
+}
+
+.project-btn {
   background: var(--primary);
   color: white;
+  text-decoration: none;
+  padding: 10px 22px;
   border-radius: 8px;
-  cursor: pointer;
   transition: var(--transition);
 }
 
-.view-btn:hover {
+.project-btn:hover {
   transform: scale(1.1);
 }
 
-.contact-section {
-  padding: 80px 50px;
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.contact-link {
+  text-decoration: none;
+  color: var(--text);
+  transition: var(--transition);
+}
+
+.contact-link:hover {
+  color: var(--primary);
+  transform: translateY(-4px);
+}
+
+.portfolio-footer {
   text-align: center;
-  animation: fadeInUp 0.8s ease-out 0.6s both;
+  padding: 25px;
+  background: #111;
+  color: #aaa;
 }
 
 @keyframes fadeInUp {
@@ -193,16 +302,32 @@ body {
 }
 
 @media (max-width: 768px) {
-  .navbar {
+  .portfolio-nav {
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
+    padding: 20px;
   }
 
-  .hero-title {
-    font-size: 40px;
+  .nav-menu {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
-  .hero-subtitle {
-    font-size: 18px;
+  .hero-name {
+    font-size: 45px;
+  }
+
+  .hero-role {
+    font-size: 24px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .skills-section,
+  .projects-section,
+  .contact-section {
+    padding: 80px 25px;
   }
 }
