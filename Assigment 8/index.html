@@ -232,7 +232,58 @@
   </div>
 </div>
  
-
+<script>
+  var expression = '';
+ 
+  function updateDisplay(value) {
+    document.getElementById('display').textContent = value || '0';
+  }
+ 
+  function pressKey(key) {
+    if (expression === 'Error') expression = '';
+    if (expression === '0' && key !== '.') expression = '';
+    expression += key;
+    updateDisplay(expression);
+  }
+ 
+  function clearAll() {
+    expression = '';
+    updateDisplay('0');
+  }
+ 
+  function deleteLast() {
+    if (expression === 'Error') {
+      expression = '';
+    } else {
+      expression = expression.slice(0, -1);
+    }
+    updateDisplay(expression || '0');
+  }
+ 
+  function calculate() {
+    try {
+      var result = eval(expression);
+      expression = String(result);
+      updateDisplay(expression);
+    } catch (e) {
+      expression = 'Error';
+      updateDisplay('Error');
+    }
+  }
+ 
+  document.addEventListener('keydown', function(e) {
+    if (e.key >= '0' && e.key <= '9') pressKey(e.key);
+    else if (e.key === '+') pressKey('+');
+    else if (e.key === '-') pressKey('-');
+    else if (e.key === '*') pressKey('*');
+    else if (e.key === '/') { e.preventDefault(); pressKey('/'); }
+    else if (e.key === '%') pressKey('%');
+    else if (e.key === '.') pressKey('.');
+    else if (e.key === 'Enter' || e.key === '=') calculate();
+    else if (e.key === 'Escape') clearAll();
+    else if (e.key === 'Backspace') deleteLast();
+  });
+</script>
  
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
