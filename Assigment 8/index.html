@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JavaScript Calculator</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+ 
+    .calculator {
+      background-color: #1e1b2e;
+      border-radius: 16px;
+      padding: 20px;
+      width: 280px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    }
+ 
+    .calc-title {
+      color: #aaa;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-align: center;
+      margin-bottom: 15px;
+      font-family: monospace;
+    }
+ 
+    .display {
+      background-color: #2a2640;
+      border-radius: 10px;
+      padding: 15px 20px;
+      text-align: right;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      min-height: 65px;
+      word-break: break-all;
+      font-family: monospace;
+    }
+ 
+    .btn-calc {
+      width: 100%;
+      padding: 14px;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+ 
+    .btn-calc:active {
+      transform: scale(0.95);
+      opacity: 0.8;
+    }
+ 
+    .btn-num {
+      background-color: #2e2b42;
+      color: white;
+    }
+ 
+    .btn-num:hover {
+      background-color: #3a3655;
+    }
+ 
+    .btn-op {
+      background-color: #6b4f1e;
+      color: #f0a500;
+    }
+ 
+    .btn-op:hover {
+      background-color: #7d5c22;
+    }
+ 
+    .btn-clear {
+      background-color: #8b0000;
+      color: white;
+    }
+ 
+    .btn-clear:hover {
+      background-color: #a00000;
+    }
+ 
+    .btn-del {
+      background-color: #2e2b42;
+      color: #f0a500;
+    }
+ 
+    .btn-del:hover {
+      background-color: #3a3655;
+    }
+ 
+    .btn-percent {
+      background-color: #2e2b42;
+      color: #f0a500;
+    }
+ 
+    .btn-percent:hover {
+      background-color: #3a3655;
+    }
+ 
+    .btn-equal {
+      background-color: #f0c000;
+      color: #1a1a1a;
+      font-size: 1.3rem;
+    }
+ 
+    .btn-equal:hover {
+      background-color: #e0b000;
+    }
+ 
+    .shortcuts {
+      background-color: #1a1a2e;
+      border-top: 1px solid #333;
+      padding: 12px 15px;
+      margin-top: 15px;
+      border-radius: 8px;
+    }
+ 
+    .shortcuts h6 {
+      color: #f0c000;
+      font-size: 0.8rem;
+      margin-bottom: 6px;
+    }
+ 
+    .shortcuts p {
+      color: #999;
+      font-size: 0.75rem;
+      margin: 0;
+    }
+ 
+    .shortcuts code {
+      background-color: #2a2640;
+      color: #f0c000;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+    }
+  </style>
+</head>
+<body>
+ 
+<div>
+  <div class="calculator">
+    <div class="calc-title">JAVASCRIPT CALCULATOR</div>
+ 
+    <div class="display" id="display">0</div>
+ 
+    <div class="row g-2">
+      <div class="col-3">
+        <button class="btn-calc btn-clear" onclick="clearAll()">C</button>
+      </div>
+      <div class="col-3">
+        <button class="btn-calc btn-del" onclick="deleteLast()">&#9003;</button>
+      </div>
+      <div class="col-3">
+        <button class="btn-calc btn-percent" onclick="pressKey('%')">%</button>
+      </div>
+      <div class="col-3">
+        <button class="btn-calc btn-op" onclick="pressKey('/')">÷</button>
+      </div>
+ 
+      <div class="col-3">
+        <button class="btn-calc btn-num" onclick="pressKey('7')">7</button>
+      </div>
+      <div class="col-3">
+        <button class="btn-calc btn-num" onclick="pressKey('8')">8</button>
+      </div>
+      <div class="col-3">
+        <button class="btn-calc btn-num" onclick="pressKey('9')">9</button>
+      </div>
+      <div class="col-3">
+        <button class="btn-calc btn-op" onclick="pressKey('*')">×</button>
+      </div>
+ 
+      <div class="col-3">
+        <button class="btn-calc btn-num" onclick="pressKey('4')">4</button>
+      </div>
+      <div class="col-3">
+        <button class="btn-calc btn-num" onclick="pressKey('5')">5</button>
+      </div>
+      <div class="col-3">
+        <button class="btn-calc btn-num" onclick="pressKey('6')">6</button>
+      </div>
+      <div class="col-3">
+        <button class="btn-calc btn-op" onclick="pressKey('-')">−</button>
+      </div>
+ 
+      <div class="col-3">
+        <button class="btn-calc btn-num" onclick="pressKey('1')">1</button>
+      </div>
+      <div class="col-3">
+        <button class="btn-calc btn-num" onclick="pressKey('2')">2</button>
+      </div>
+      <div class="col-3">
+        <button class="btn-calc btn-num" onclick="pressKey('3')">3</button>
+      </div>
+      <div class="col-3">
+        <button class="btn-calc btn-op" onclick="pressKey('+')">+</button>
+      </div>
+ 
+      <div class="col-6">
+        <button class="btn-calc btn-num" onclick="pressKey('0')">0</button>
+      </div>
+      <div class="col-3">
+        <button class="btn-calc btn-num" onclick="pressKey('.')">.</button>
+      </div>
+      <div class="col-3" style="visibility:hidden;"></div>
+ 
+      <div class="col-12">
+        <button class="btn-calc btn-equal" onclick="calculate()">=</button>
+      </div>
+    </div>
+ 
+    <div class="shortcuts">
+      <h6>Keyboard Shortcuts</h6>
+      <p>
+        Use <code>0-9</code> for numbers,
+        <code>+ - * /</code> for operators,
+        <code>Enter</code> or <code>=</code> to calculate,
+        <code>Escape</code> to clear,
+        <code>Backspace</code> to delete
+      </p>
+    </div>
+  </div>
+</div>
+ 
+
+ 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
